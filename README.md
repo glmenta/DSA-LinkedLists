@@ -34,6 +34,7 @@ class LinkedList {
       //very first node in LL points to nothing (null)
     }
     this.tail = this.head;
+    //tail === head b/c it is a singular node at this point
     this.length = 1;
   }
 }
