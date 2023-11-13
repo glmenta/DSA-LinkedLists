@@ -1,1 +1,4 @@
 # DSA-LinkedLists
+
+# Notes:
+
