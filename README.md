@@ -135,4 +135,6 @@ const myLinkedList = new LinkedList(10)
 myLinkedList.append(5)
 myLinkedList.append(16)
 myLinkedList.prepend(1) 1 -> 10 -> 5 -> 16
+myLinkedList.insert(2,99) 1 -> 10 -> 99 -> 5 -> 16
+myLinkedList.insert(20,69) 1 -> 10 -> 99 -> 5 -> 16 -> 69
 ```
