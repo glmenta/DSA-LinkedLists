@@ -3,7 +3,7 @@
 ### Pointer => Reference in Memory
 
 ### JS has no inherent LL; But we create it through a class.
-
+```
 let linkedList = {
   head: {
     value: 
@@ -41,4 +41,4 @@ class LinkedList {
 
 //instantiate a new linked list here
 const myLinkedList = new LinkedList(10)
-
+```
