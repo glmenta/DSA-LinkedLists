@@ -78,6 +78,54 @@ class LinkedList {
     this.length++;
     return this;
   }
+
+//printList => create arr for our LL
+printList() {
+  const array = [];
+  let currNode = this.head;
+
+  //keep looping until we are at the tail
+  while (currNode !== null) {
+    array.push(currNode.val)
+
+    //reassign currNode for our iteration to keep going
+    currNode = currNode.next
+  }
+  return array;
+}
+
+//Insert =>Add in between nodes/certain index
+  //traverse until we hit index, create new node, create new node pointer old node in that target index, change idx.next to newnode
+  insert(idx,val) {
+    //case if we are inserting at the beginning:
+    if (idx === 0) {
+      this.prepend(val);
+      return this.printList()
+    //case if we are inserting at an index beyond/equal to our LL length 
+    } else if (idx >= this.length) {
+      return this.append(val)
+    }
+    const newNode = new Node(val)
+
+    //traverseToIndex takes in the previous index/node before our target index
+    const leadNode = this.traverseToIndex(idx - 1)
+    const holdPointer = leadNode.next;
+    leadNode.next = newNode;
+    newNode.next = holdPointer
+    this.length++
+    return this;
+  }
+
+  traverseToIndex(idx) {
+    let counter = 0;
+    let currNode = this.head;
+
+    while(counter !== idx) {
+      currNode = currNode.next
+      counter++
+    }
+    return currNode
+  }
 }
 
 
@@ -86,4 +134,5 @@ class LinkedList {
 const myLinkedList = new LinkedList(10)
 myLinkedList.append(5)
 myLinkedList.append(16)
+myLinkedList.prepend(1) 1 -> 10 -> 5 -> 16
 ```
