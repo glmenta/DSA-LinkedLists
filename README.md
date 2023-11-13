@@ -37,8 +37,24 @@ class LinkedList {
     //tail === head b/c it is a singular node at this point
     this.length = 1;
   }
+
+  //Append => add to our linked list node
+  append(val) {
+    //create our new node
+    const newNode = {
+      val: val,
+      next: null
+    }
+    //point tail to new node
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++
+    return this;
+  }
 }
 
 //instantiate a new linked list here
 const myLinkedList = new LinkedList(10)
+myLinkedList.append(5)
+myLinkedList.append(16)
 ```
