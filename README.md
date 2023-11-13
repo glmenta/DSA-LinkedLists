@@ -25,6 +25,7 @@ let myLinkedList = {
     }
 }
 
+//This class creates a new node for our linked list 
 class LinkedList {
   constructor(val) {
     this.head = {
@@ -33,6 +34,7 @@ class LinkedList {
       //very first node in LL points to nothing (null)
     }
     this.tail = this.head;
+    this.length = 1;
   }
 }
 
