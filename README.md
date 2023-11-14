@@ -3,6 +3,8 @@
 ### Pointer => Reference in Memory
 
 ### JS has no inherent LL; But we create it through a class.
+
+### Singly Linked Lists
 ```
 let linkedList = {
   head: {
@@ -147,4 +149,99 @@ myLinkedList.append(16)
 myLinkedList.prepend(1) 1 -> 10 -> 5 -> 16
 myLinkedList.insert(2,99) 1 -> 10 -> 99 -> 5 -> 16
 myLinkedList.insert(20,69) 1 -> 10 -> 99 -> 5 -> 16 -> 69
+```
+
+### Doubly Linked Lists
+
+```
+  class DoublyLinkedList {
+    constructor(val) {
+      this.head = {
+        val: val,
+        next: null,
+        prev: null
+      }
+      this.tail = this.head;
+      this.length = 1;
+    }
+    append(val) {
+      const newNode = {
+        val: val,
+        next: null,
+        prev: null
+      }
+      newNode.prev = this.tail,
+      this.tail.next = newNode
+      this.tail = newNode
+      this.length++
+      return this;
+    }
+    prepend(val) {
+      const newNode = {
+        val: val,
+        next: null,
+        prev: null
+      }
+    //create a pointer that points to our this.head
+    newNode.next = this.head;
+    this.head.prev = newNode;
+
+    //update reference for our head
+    this.head = newNode;
+
+    this.length++;
+    return this;
+    }
+
+//Insert =>Add in between nodes/certain index
+  //traverse until we hit index, create new node, create new node pointer old node in that target index, change idx.next to newnode
+  insert(idx,val) {
+    //case if we are inserting at the beginning:
+    if (idx === 0) {
+      this.prepend(val);
+      return this.printList()
+    //case if we are inserting at an index beyond/equal to our LL length 
+    } else if (idx >= this.length) {
+      return this.append(val)
+    }
+    const newNode = {
+        val: val,
+        next: null,
+        prev: null
+    }
+
+    //traverseToIndex takes in the previous index/node before our target index
+    const leadNode = this.traverseToIndex(idx - 1)
+    const follower = leadNode.next;
+    leadNode.next = newNode;
+    newNode.next = follower
+
+    newNode.prev = leadNode
+    follower.prev = newNode
+
+    this.length++
+    return this.printList();
+    }
+
+//remove an index
+  remove(idx) {
+    //grabs node of the idx to the left of the target idex
+    const leadNode = this.traverseToIndex(idx - 1)
+
+    if (!leadNode || !leadNode.next) {
+      return this.printList();
+    }
+    const removeNode = leadNode.next;
+    const nextNode = removeNode.next;
+
+    leadNode.next = nextNode;
+
+    if (nextNode) {
+      nextNode.prev = leadNode;
+    }
+
+    this.length--
+    return this.printList();
+  }
+}
 ```
