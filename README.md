@@ -1,5 +1,14 @@
 ## Notes:
 
+
+### Why LL over Array? Simple and can grow easily, flexible.
+
+### Used for hash collisions =
+
+### PROS: Fast insertion and Deletion, Ordered, Flexible Size
+
+### CONS: Slow Lookup, More memory
+
 ### Pointer => Reference in Memory
 
 ### JS has no inherent LL; But we create it through a class.
