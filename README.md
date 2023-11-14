@@ -113,7 +113,17 @@ printList() {
     leadNode.next = newNode;
     newNode.next = holdPointer
     this.length++
-    return this;
+    return this.printList();
+  }
+
+//remove an index
+  remove(idx) {
+    //grabs node of the idx to the left of the target idex
+    const leadNode = this.traverseToIndex(idx - 1)
+    const removeNode = leadNode.next;
+    leadNode.next = removeNode.next;
+    this.length--
+    return this.printList();
   }
 
   traverseToIndex(idx) {
