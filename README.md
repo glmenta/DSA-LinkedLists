@@ -3,7 +3,7 @@
 
 ### Why LL over Array? Simple and can grow easily, flexible.
 
-### Used for hash collisions =
+### Used for hash collisions 
 
 ### PROS: Fast insertion and Deletion, Ordered, Flexible Size
 
