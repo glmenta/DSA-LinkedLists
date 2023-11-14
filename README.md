@@ -4,6 +4,10 @@
 
 ### JS has no inherent LL; But we create it through a class.
 
+### Singly vs Doubly:
+    -Singly => better if its for fast insert/deletion but slower if bigger data 
+    -Doubly => Can traverse forward/backward, deleting does not require to start from head and requires more memory
+    
 ### Singly Linked Lists
 ```
 let linkedList = {
@@ -137,6 +141,29 @@ printList() {
       counter++
     }
     return currNode
+  }
+
+  reverse() {
+    if (!this.head.next) {
+      return this.head;
+    }
+
+    let firstNode = this.head;
+    this.tail = this.head;
+    let secondNode = this.head.next;
+
+    //Loop goes as long as our node exists
+    while (secondNode !== null) {
+      //var to store reference for our node's pointer val (next node)
+      const temp = secondNode.next;
+      //point our node back to the previous node (flip the arrow)
+      secondNode.next = firstNode
+      //reassign our 
+      firstNode = secondNode;
+      secondNode = temp;
+    }
+    this.head.next = null;
+    this.head = firstNode;
   }
 }
 
